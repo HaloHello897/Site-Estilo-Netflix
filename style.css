@@ -1,0 +1,588 @@
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    /* Remove as margens padrão de todos os elementos */
+    padding: 0;
+    /* Remove o preenchimento padrão de todos os elementos */
+    box-sizing: border-box;
+    /* Inclui border e padding no cálculo da largura/altura */
+}
+
+/* Variáveis de tema */
+:root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --profile-bg: rgba(255, 255, 255, 0.1);
+    --profile-hover-bg: rgba(88, 8, 2, 0.836);
+    --figcaption-color: #ccc;
+    --figcaption-hover: #fff;
+    --border-color: #fff;
+}
+
+/* Tema Light */
+body.light-mode {
+    --bg-color: #f5f5f5;
+    --text-color: #222;
+    --profile-bg: rgba(0, 0, 0, 0.1);
+    --profile-hover-bg: rgba(229, 9, 20, 0.15);
+    --figcaption-color: #666;
+    --figcaption-hover: #000;
+    --border-color: #222;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* Define a fonte principal do site */
+    background-color: var(--bg-color);
+    /* Define fundo usando variável de tema */
+    color: var(--text-color);
+    /* Define a cor do texto usando variável de tema */
+    min-height: 100vh;
+    /* Garante que o body ocupe pelo menos a altura da tela */
+    display: flex;
+    /* Ativa o layout flexbox para organizar elementos */
+    flex-direction: column;
+    /* Organiza elementos em coluna (de cima para baixo) */
+    justify-content: center;
+    /* Centra os elementos verticalmente */
+    align-items: center;
+    /* Centra os elementos horizontalmente */
+    padding: 2rem;
+    /* Adiciona espaçamento interno de 2rem em todos os lados */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Suaviza transição de cores ao mudar tema */
+}
+
+/* Header */
+header {
+    text-align: center;
+    /* Alinha o texto do header para o centro */
+    margin-bottom: 3rem;
+    /* Adiciona espaço abaixo do header */
+    width: 100%;
+    /* Garante que o header ocupe toda a largura */
+}
+
+.header-top {
+    display: flex;
+    /* Ativa layout flexbox */
+    justify-content: center;
+    /* Centra os elementos */
+    align-items: center;
+    /* Alinha verticalmente */
+    position: relative;
+    /* Posiciona relativamente para o botão ficar no canto */
+}
+
+h1 {
+    font-size: 3.5rem;
+    /* Define o tamanho da fonte como 3.5 vezes o tamanho padrão */
+    font-weight: 400;
+    /* Define peso da fonte como regular (nem bold nem leve) */
+    letter-spacing: -0.02em;
+    /* Reduz o espaço entre letras para aparência mais compacta */
+    margin-bottom: 1rem;
+    /* Adiciona espaço abaixo do título */
+    flex: 1;
+    /* Ocupa o espaço disponível */
+}
+
+/* Botão de Theme Toggle */
+.theme-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    padding: 0.5rem 0.75rem;
+    transition: background-color 0.3s ease, border 0.3s ease;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: var(--profile-bg);
+    min-width: 150px;
+}
+
+.profile:hover {
+    transform: scale(1.05);
+    background-color: var(--profile-hover-bg);
+    border: 3px solid var(--border-color);
+}
+
+/* Seção de perfis */
+.profiles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 800px;
+}
+
+/* Perfil individual */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    min-width: 150px;
+}
+
+.profile figcaption {
+    color: var(--figcaption-color);
+    transition: color 0.2s ease;
+}
+
+.profile:hover figcaption {
+    color: var(--figcaption-hover);
+}
+
+/* Garantir layout horizontal em telas maiores que 767px */
+@media (min-width: 768px) {
+    .profiles {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile {
+        width: auto;
+        max-width: none;
+    }
+}
+
+.profile:focus {
+    outline: 2px solid #fff;
+    /* Adiciona uma borda branca ao perfil quando focado (acessibilidade) */
+    outline-offset: 2px;
+    /* Adiciona espaço entre a borda e o elemento */
+}
+
+/* Imagem do perfil */
+figure {
+    margin-bottom: 1rem;
+    /* Adiciona espaço abaixo da figura */
+}
+
+img {
+    width: 120px;
+    /* Define a largura da imagem como 120 pixels */
+    height: 120px;
+    /* Define a altura da imagem como 120 pixels */
+    border-radius: 0.5rem;
+    /* Arredonda os cantos da imagem */
+    object-fit: cover;
+    /* Garante que a imagem preencha o espaço mantendo proporção */
+    display: block;
+    /* Remove espaço em branco extra embaixo da imagem */
+}
+
+/* Nome do perfil */
+figcaption {
+    font-size: 1.2rem;
+    /* Define o tamanho da fonte como 1.2 vezes o tamanho padrão */
+    font-weight: 300;
+    /* Define peso da fonte como leve */
+    text-align: center;
+    /* Alinha o texto para o centro */
+    color: #ccc;
+    /* Define a cor do texto como cinza claro */
+    transition: color 0.2s ease;
+    /* Suaviza mudanças de cor em 0.2 segundos */
+}
+
+.profile:hover figcaption {
+    color: #fff;
+    /* Muda a cor do texto para branco ao passar o mouse no perfil */
+}
+
+/* Responsividade - Telas Ultra-Wide (2560px+) */
+@media (min-width: 2560px) {
+    h1 {
+        font-size: 5rem;
+        /* Aumenta o título para telas muito grandes */
+    }
+
+    .profiles {
+        gap: 3rem;
+        /* Aumenta o espaço entre perfis */
+        max-width: 1200px;
+        /* Permite mais largura para telas grandes */
+    }
+
+    .profile {
+        min-width: 200px;
+        /* Aumenta a largura mínima dos perfis */
+        padding: 1.5rem;
+        /* Aumenta o preenchimento */
+    }
+
+    img {
+        width: 160px;
+        /* Aumenta o tamanho das imagens */
+        height: 160px;
+    }
+
+    figcaption {
+        font-size: 1.5rem;
+        /* Aumenta o tamanho da fonte */
+    }
+}
+
+/* Responsividade - Desktops Grandes (1440px+) */
+@media (min-width: 1440px) {
+    h1 {
+        font-size: 4.5rem;
+        /* Título maior para desktops */
+    }
+
+    .profiles {
+        gap: 2.5rem;
+        /* Espaço maior entre perfis */
+        max-width: 1000px;
+        /* Largura maior para telas grandes */
+    }
+
+    .profile {
+        min-width: 180px;
+        /* Perfis um pouco maiores */
+        padding: 1.25rem;
+        /* Preenchimento maior */
+    }
+
+    img {
+        width: 140px;
+        /* Imagens maiores */
+        height: 140px;
+    }
+
+    figcaption {
+        font-size: 1.4rem;
+        /* Fonte maior */
+    }
+}
+
+/* Responsividade - Desktops (1024px+) */
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 4rem;
+        /* Título otimizado para desktops */
+    }
+
+    .profiles {
+        gap: 2.25rem;
+        /* Espaço adequado para desktops */
+        max-width: 900px;
+        /* Largura confortável */
+    }
+
+    .profile {
+        min-width: 160px;
+        /* Largura boa para desktops */
+        padding: 1.1rem;
+        /* Preenchimento confortável */
+    }
+
+    img {
+        width: 130px;
+        /* Tamanho ideal para desktops */
+        height: 130px;
+    }
+
+    figcaption {
+        font-size: 1.3rem;
+        /* Fonte legível */
+    }
+}
+
+/* Responsividade - Tablets Grandes / Laptops Pequenos (768px+) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    h1 {
+        font-size: 3rem;
+        /* Título reduzido para tablets */
+    }
+
+    .profiles {
+        gap: 2rem;
+        /* Espaço adequado para tablets */
+        max-width: 700px;
+        /* Largura otimizada */
+    }
+
+    .profile {
+        min-width: 140px;
+        /* Largura confortável */
+        padding: 1rem;
+        /* Preenchimento padrão */
+    }
+
+    img {
+        width: 110px;
+        /* Tamanho bom para tablets */
+        height: 110px;
+    }
+
+    figcaption {
+        font-size: 1.1rem;
+        /* Fonte legível */
+    }
+}
+
+/* Responsividade - Tablets (601px - 767px) */
+@media (min-width: 601px) and (max-width: 767px) {
+    h1 {
+        font-size: 2.5rem;
+        /* Título menor para tablets pequenos */
+    }
+
+    .profiles {
+        gap: 1.5rem;
+        /* Espaço reduzido */
+        max-width: 600px;
+        /* Largura menor */
+    }
+
+    .profile {
+        min-width: 120px;
+        /* Largura reduzida */
+        padding: 0.9rem;
+        /* Preenchimento menor */
+    }
+
+    img {
+        width: 100px;
+        /* Imagens menores */
+        height: 100px;
+    }
+
+    figcaption {
+        font-size: 1rem;
+        /* Fonte menor */
+    }
+}
+
+/* Responsividade - Menor que 767px: perfis em coluna */
+@media (max-width: 767px) {
+    .profiles {
+        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .profile {
+        width: 100%;
+        max-width: 320px;
+        min-width: auto;
+    }
+}
+
+/* Responsividade - Celulares Grandes (481px - 600px) */
+@media (min-width: 481px) and (max-width: 600px) {
+    body {
+        padding: 1.5rem;
+        /* Preenchimento médio */
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        /* Título médio */
+        margin-bottom: 2rem;
+        /* Espaço menor abaixo */
+    }
+
+    .profiles {
+        gap: 1.25rem;
+        /* Espaço médio */
+        max-width: 500px;
+        /* Largura adequada */
+    }
+
+    .profile {
+        min-width: 110px;
+        /* Largura média */
+        padding: 0.8rem;
+        /* Preenchimento médio */
+    }
+
+    img {
+        width: 90px;
+        /* Tamanho médio */
+        height: 90px;
+    }
+
+    figcaption {
+        font-size: 0.95rem;
+        /* Fonte média */
+    }
+}
+
+/* Responsividade - Celulares (376px - 480px) */
+@media (min-width: 376px) and (max-width: 480px) {
+    body {
+        padding: 1rem;
+        /* Preenchimento reduzido */
+    }
+
+    h1 {
+        font-size: 2rem;
+        /* Título pequeno */
+        margin-bottom: 1.5rem;
+        /* Espaço reduzido */
+    }
+
+    .profiles {
+        gap: 1rem;
+        /* Espaço pequeno */
+        max-width: 400px;
+        /* Largura pequena */
+    }
+
+    .profile {
+        min-width: 100px;
+        /* Largura mínima */
+        padding: 0.75rem;
+        /* Preenchimento pequeno */
+    }
+
+    img {
+        width: 80px;
+        /* Tamanho pequeno */
+        height: 80px;
+    }
+
+    figcaption {
+        font-size: 0.9rem;
+        /* Fonte pequena */
+    }
+}
+
+/* Responsividade - Celulares Pequenos (321px - 375px) */
+@media (min-width: 321px) and (max-width: 375px) {
+    body {
+        padding: 0.75rem;
+        /* Preenchimento mínimo */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        /* Título muito pequeno */
+        margin-bottom: 1.25rem;
+        /* Espaço mínimo */
+    }
+
+    .profiles {
+        gap: 0.75rem;
+        /* Espaço mínimo */
+        max-width: 350px;
+        /* Largura muito pequena */
+    }
+
+    .profile {
+        min-width: 90px;
+        /* Largura muito pequena */
+        padding: 0.6rem;
+        /* Preenchimento mínimo */
+    }
+
+    img {
+        width: 70px;
+        /* Tamanho muito pequeno */
+        height: 70px;
+    }
+
+    figcaption {
+        font-size: 0.85rem;
+        /* Fonte muito pequena */
+    }
+}
+
+/* Responsividade - Celulares Muito Pequenos (até 320px) */
+@media (max-width: 320px) {
+    body {
+        padding: 0.5rem;
+        /* Preenchimento mínimo */
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        /* Título mínimo */
+        margin-bottom: 1rem;
+        /* Espaço mínimo */
+    }
+
+    .profiles {
+        gap: 0.5rem;
+        /* Espaço mínimo */
+        max-width: 300px;
+        /* Largura mínima */
+    }
+
+    .profile {
+        min-width: 80px;
+        /* Largura mínima */
+        padding: 0.5rem;
+        /* Preenchimento mínimo */
+    }
+
+    img {
+        width: 60px;
+        /* Tamanho mínimo */
+        height: 60px;
+    }
+
+    figcaption {
+        font-size: 0.8rem;
+        /* Fonte mínima */
+    }
+}
+
+/* Orientação paisagem para dispositivos móveis */
+@media (max-height: 500px) and (orientation: landscape) {
+    body {
+        padding: 0.5rem;
+        /* Preenchimento reduzido na horizontal */
+        min-height: auto;
+        /* Remove altura mínima para caber na tela */
+        justify-content: flex-start;
+        /* Alinha ao topo */
+        padding-top: 1rem;
+        /* Espaço do topo */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        /* Título menor na horizontal */
+        margin-bottom: 1rem;
+        /* Espaço menor */
+    }
+
+    .profiles {
+        gap: 1rem;
+        /* Espaço menor entre perfis */
+        flex-wrap: nowrap;
+        /* Evita quebra de linha */
+        overflow-x: auto;
+        /* Permite rolagem horizontal */
+        max-width: 100%;
+        /* Usa toda a largura */
+        padding: 0 1rem;
+        /* Espaço lateral */
+    }
+
+    .profile {
+        flex-shrink: 0;
+        /* Evita encolhimento dos perfis */
+        min-width: 100px;
+        /* Largura mínima mantida */
+    }
+}

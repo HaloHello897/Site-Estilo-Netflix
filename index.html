@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <h1>Quem está assistindo?</h1>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema escuro/claro">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="profiles" aria-label="Seleção de perfis">
+            <article class="profile" role="button" tabindex="0">
+            <a href="catalogo/catalogo.html" class="profile-link" data-perfil-nome="Amanda" data-perfil-img="Assets/Teste Perfil 01.jpg">
+                    <figure>
+                        <img src="Assets/Teste Perfil 01.jpg" alt="Imagem cinemática de mulher com olhar distante">
+                        <figcaption>Amanda</figcaption>
+                    </figure>
+                </a>
+            </article>
+            <article class="profile" role="button" tabindex="0">
+                <a href="catalogo/catalogo.html" class="profile-link" data-perfil-nome="Joaquim" data-perfil-img="Assets/Teste Perfil 02.jpg">
+                <figure>
+                    <img src="Assets/Teste Perfil 02.jpg" alt="Cartoon preto e branco de uma criança com boina">
+                    <figcaption>Joaquim</figcaption>
+                </figure>
+                </a>
+            </article>
+            <article class="profile" role="button" tabindex="0">
+                <a href="catalogo/catalogo.html" class="profile-link" data-perfil-nome="Rafael" data-perfil-img="Assets/HMS_Agincourt_1915_(cropped).jpg">
+                    <figure>
+                        <img src="Assets/HMS_Agincourt_1915_(cropped).jpg" alt="Imagem do encouraçado HMS Agincourt, 1915">
+                        <figcaption>Rafael</figcaption>
+                    </figure>
+                </a>
+            </article>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
